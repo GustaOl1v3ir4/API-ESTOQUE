@@ -14,7 +14,7 @@ class Inventory {
                 type: database.db.Sequelize.STRING,
                 allowNull: false,
             },
-            OrganizationId: {
+            organizationId: {
                 type: database.db.Sequelize.INTEGER,
                 references: {
                     model: Organizition,
