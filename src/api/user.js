@@ -1,9 +1,11 @@
+const serviceUser = require("../service/user")
+
 class ApiUser {
     async FindById(req, res) {
         try {
             const organizationId = 1
             const { id } = req.params
-            const user = {} // await service.findById(userId)
+            const user = await serviceUser.FindById(organizationId, id) // await service.findById(userId)
 
             res.status(200).send({user})
         }catch (error) {
@@ -13,7 +15,7 @@ class ApiUser {
     async FindByAll(req, res) {
         try {
             const organizationId = 1
-            const users = [{}] // await service.findById(userId)
+            const users = await serviceUser.FindAll(organizationId) // await service.findById(userId)
 
             res.status(200).send({users})
         }catch (error) {
@@ -24,9 +26,9 @@ class ApiUser {
         try {
             const organizationId = 1
             const { name, email, password, role } = req.body
-            const user = {} // await service.findById(userId)
+            const user = await serviceUser.Create(organizationId, name, email, password, role) // await service.findById(userId)
 
-            res.status(200).send({user})
+            res.status(200).send({user: user.toJSON()})
         }catch (error) {
             res.status(500).send({ msg: error.message})
         }
@@ -34,8 +36,9 @@ class ApiUser {
     async Update(req, res) {
         try {
             const organizationId = 1
-            const { name, email, password, role } = req.params
-            const user = {} // await service.findById(userId)
+            const { id } = req.params
+            const { name, email, password, role } = req.body
+            const user = await serviceUser.Update(organizationId, id, name, email, password, role) // await service.findById(userId)
 
             res.status(200).send({user})
         }catch (error) {
@@ -46,7 +49,7 @@ class ApiUser {
         try {
             const organizationId = 1
             const { id } = req.params
-            const user = {} // await service.findById(userId)
+            const user = await serviceUser.Delete(organizationId, id) // await service.findById(userId)
 
             res.status(200).send({user})
         }catch (error) {

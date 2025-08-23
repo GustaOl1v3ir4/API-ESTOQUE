@@ -1,8 +1,11 @@
+const e = require('express')
+const ServiceOrganization = require('../service/organization')
+
 class ApiOrganization {
     async FindById(req, res) {
         try {
             const { id } = req.params
-            const organization = { id } // await service.findById(organizationId)
+            const organization = await ServiceOrganization.FindById(id) // await service.findById(organizationId)
 
             res.status(200).send({organization})
         }catch (error) {
@@ -12,7 +15,7 @@ class ApiOrganization {
      async Create(req, res) {
         try {
             const { name, address, phone, email } = req.body
-            const organization = { name, address, phone, email } // await service.findById(organizationId)
+            const organization = await ServiceOrganization.Create (name, address, phone, email ) // await service.findById(organizationId)
 
             res.status(200).send({organization})
         }catch (error) {
@@ -23,7 +26,7 @@ class ApiOrganization {
         try {
             const { id } = req.params
             const {  name, address, phone, email  } = req.body
-            const organization = { id, name, address, phone, email} // await service.findById(organizationId)
+            const organization = await ServiceOrganization.Update(id, name, address, phone, email) // await service.findById(organizationId)
 
             res.status(200).send({organization})
         }catch (error) {
@@ -33,7 +36,7 @@ class ApiOrganization {
     async Delete(req, res) {
         try {
             const { id } = req.params
-            const organization = { id } // await service.findById(organizationId)
+            const organization = await ServiceOrganization.Delete(id)  // await service.findById(organizationId)
 
             res.status(200).send({organization})
         }catch (error) {
