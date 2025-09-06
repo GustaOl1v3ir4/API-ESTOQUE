@@ -1,9 +1,11 @@
+const serviceProduct = require("../service/product")
+
 class ApiProduct {
     async FindById(req, res) {
         try {
             const organizationId = 1
             const { id } = req.params
-            const product = { id } // await service.findById(productId)
+            const product = await serviceProduct.FindById(organizationId, id)
 
             res.status(200).send({product})
         }catch (error) {
@@ -12,7 +14,8 @@ class ApiProduct {
     }
     async FindByAll(req, res) {
         try {
-            const products = [{organizationId}] // await service.findById(productId)
+            const organizationId = 1 
+            const products = await serviceProduct.FindByAll(organizationId)
 
             res.status(200).send({products})
         }catch (error) {
@@ -23,7 +26,7 @@ class ApiProduct {
         try {
             const organizationId = 1
             const { name, description } = req.body
-            const product = { name, description } // await service.findById(productId)
+            const product = await serviceProduct.Create(organizationId, name, description)
 
             res.status(200).send({product})
         }catch (error) {
@@ -33,8 +36,9 @@ class ApiProduct {
     async Update(req, res) {
         try {
             const organizationId = 1
-            const { id, name, description } = req.params
-            const product = {} // await service.findById(productId)
+            const { id, } = req.params
+            const { name, description } = req.body
+            const product = await serviceProduct.Update(organizationId, id, name, description)
 
             res.status(200).send({product})
         }catch (error) {
@@ -45,7 +49,7 @@ class ApiProduct {
         try {
             const organizationId = 1
             const { id } = req.params
-            const product = {} // await service.findById(productId)
+            const product = await serviceProduct.Delete(organizationId, id)
 
             res.status(200).send({product})
         }catch (error) {

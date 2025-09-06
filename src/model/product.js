@@ -1,5 +1,5 @@
 const database = require("../database")
-const Organizition = require("./organizition")
+const Organizition = require("./organization")
 
 
 class Product {
