@@ -1,5 +1,5 @@
 const database = require("../database")
-const Organizition = require("./organizition")
+const Organization = require("./organization")
 
 
 class Inventory {
@@ -17,16 +17,16 @@ class Inventory {
             organizationId: {
                 type: database.db.Sequelize.INTEGER,
                 references: {
-                    model: Organizition,
+                    model: Organization,
                     key: "id"
                 }
             }
         })
 
-        this.model.belongsTo(Organizition,{
+        this.model.belongsTo(Organization,{
             foreignKey: 'organizationId'
         })
-        Organizition.hasMany(this.model, {
+        Organization.hasMany(this.model, {
             foreignKey: 'organizationId'
         })
     }
