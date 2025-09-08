@@ -1,11 +1,13 @@
-const express = require('express')
+const express = require('express');
+const inventoryMovement = require('../api/inventoryMovement');
 
 const movementRouter = express.Router();
 
-movementRouter.get('/:inventoryId/', () => {}) // pegar todos 
-movementRouter.get('/:inventoryId/id', () => {}) // pegar um
-movementRouter.post('/:inventoryId/', () => {})
-movementRouter.put('/:inventoryId/id', () => {})
-movementRouter.delete('/:inventoryId/id', () => {})
+movementRouter.get('/:inventoryId', inventoryMovement.FindByAll)
+movementRouter.get('/:inventoryId/:id', inventoryMovement.FindById)
+movementRouter.post('/:inventoryId', inventoryMovement.Create)
+movementRouter.put('/:inventoryId/:id', inventoryMovement.Update)
+movementRouter.delete('/:inventoryId/:id', inventoryMovement.Delete)
+
 
 module.exports = movementRouter

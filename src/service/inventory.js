@@ -24,7 +24,7 @@ class ServiceInventory {
         }
 
         return modelInventory.create(
-            {organizationId},
+            {organizationId, name},
             { transaction }
         )
     }
@@ -40,7 +40,7 @@ class ServiceInventory {
     }
 
     async Delete(organizationId, id,  transaction){
-        const oldInventory = await this.FindById(organizationId, id)
+        const oldInventory = await this.FindById(organizationId, id, transaction)
         if(!oldInventory) {
             throw new Error("Estoque não foi encontrado")
         }
