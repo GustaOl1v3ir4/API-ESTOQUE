@@ -17,10 +17,11 @@ class ServiceInventoryMovement {
 }
     
     async FindAll( inventoryId, transaction){
-        return modelInventoryMovement.findAll(
-            {where: { inventoryId}, include: {model: product}},
-            {transaction }
-        )
+        return modelInventoryMovement.findAll({
+            where: { inventoryId}, 
+            include: {model: product},
+            transaction 
+     });
     }
     
     async Create(inventoryId, userId, type, amount, productId, transaction){

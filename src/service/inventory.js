@@ -1,21 +1,23 @@
 const { where } = require("sequelize")
 const modelInventory = require("../model/inventory")
 const inventoryMovement = require("./inventoryMovement")
+const getProductMovementes = require('../fns/get-product-movements')
 
 class ServiceInventory {
     async FindById(organizationId, id,  transaction){
-        const inventory=  modelInventory.findOne(
-            {where: {organizationId, id}},
-            { transaction }
-        )
+        const inventory = await modelInventory.findOne({
+            where: {organizationId, id},
+             transaction 
+        });
         if(!inventory){
             throw new Error("Estoque não encontrado")
         }
 
-        const movements = await inventoryMovement.FindAll(inventory.id)
-        console.log(movements)
+        const movements = await inventoryMovement.FindAll(inventory.id, transaction)
 
-        return {...inventory.dataValues }
+        const result = getProductMovementes (movements)
+
+        return {...inventory.dataValues, ...result }
     }
     
     async FindAll(organizationId, transaction){
