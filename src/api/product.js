@@ -12,10 +12,10 @@ class ApiProduct {
             res.status(500).send({ msg: error.message})
         }
     }
-    async FindByAll(req, res) {
+    async FindAll(req, res) {
         try {
             const organizationId = 1 
-            const products = await serviceProduct.FindByAll(organizationId)
+            const products = await serviceProduct.FindAll(organizationId)
 
             res.status(200).send({products})
         }catch (error) {

@@ -8,7 +8,7 @@ class ServiceProduct {
         )
     }
     
-    async FindByAll(organizationId, transaction){
+    async FindAll(organizationId, transaction){
         return modelProduct.findAll(
             {where: {organizationId }},
             { transaction }

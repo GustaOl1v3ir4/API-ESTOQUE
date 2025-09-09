@@ -3,7 +3,7 @@ const ApiProduct = require('../api/product')
 
 const ProductRouter = express.Router();
 
-ProductRouter.get('/', ApiProduct.FindByAll) //pegar todos 
+ProductRouter.get('/', ApiProduct.FindAll) //pegar todos 
 ProductRouter.get('/:id', ApiProduct.FindById) //pegar um
 ProductRouter.post('/', ApiProduct.Create)
 ProductRouter.put('/:id', ApiProduct.Update)

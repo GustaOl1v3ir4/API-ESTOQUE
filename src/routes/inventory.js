@@ -3,7 +3,7 @@ const ApiInventory = require('../api/inventory')
 
 const inventoryRouter = express.Router();
 
-inventoryRouter.get('/', ApiInventory.FindByAll) //pegar todos
+inventoryRouter.get('/', ApiInventory.FindAll) //pegar todos
 inventoryRouter.get('/:id', ApiInventory.FindById ) //pegar um
 inventoryRouter.post('/', ApiInventory.Create)
 inventoryRouter.put('/:id', ApiInventory.Update)

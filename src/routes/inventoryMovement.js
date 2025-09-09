@@ -3,7 +3,7 @@ const inventoryMovement = require('../api/inventoryMovement');
 
 const movementRouter = express.Router();
 
-movementRouter.get('/:inventoryId', inventoryMovement.FindByAll)
+movementRouter.get('/:inventoryId', inventoryMovement.FindAll)
 movementRouter.get('/:inventoryId/:id', inventoryMovement.FindById)
 movementRouter.post('/:inventoryId', inventoryMovement.Create)
 movementRouter.put('/:inventoryId/:id', inventoryMovement.Update)

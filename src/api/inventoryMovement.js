@@ -12,10 +12,10 @@ class ApiInventoryMovement {
             res.status(500).send({ msg: error.message})
         }
     }
-    async FindByAll(req, res) {
+    async FindAll(req, res) {
         try {
             const { inventoryId } = req.params
-            const inventoryMovements = await ServiceInventoryMovement.FindByAll( inventoryId)
+            const inventoryMovements = await ServiceInventoryMovement.FindAll( inventoryId)
 
             res.status(200).send({inventoryMovements})
         }catch (error) {
@@ -48,7 +48,7 @@ class ApiInventoryMovement {
     async Delete(req, res) {
         try {
             const { id, inventoryId } = req.params
-            const inventoryMovement = await ServiceInventoryMovement.Delete( id, inventoryId)
+            const inventoryMovement = await ServiceInventoryMovement.Delete( inventoryId, id)
 
             res.status(200).send({inventoryMovement})
         }catch (error) {

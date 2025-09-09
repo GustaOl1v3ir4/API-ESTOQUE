@@ -14,10 +14,10 @@ class ApiInventory {
             res.status(500).send({ msg: error.message})
         }
     }
-    async FindByAll(req, res) {
+    async FindAll(req, res) {
         try {
             const organizationId = 1
-            const inventories = await ServiceInventory.FindByAll(organizationId)
+            const inventories = await ServiceInventory.FindAll(organizationId)
 
             res.status(200).send({inventories})
         }catch (error) {

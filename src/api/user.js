@@ -12,7 +12,7 @@ class ApiUser {
             res.status(500).send({ msg: error.message})
         }
     }
-    async FindByAll(req, res) {
+    async FindAll(req, res) {
         try {
             const organizationId = 1
             const users = await serviceUser.FindAll(organizationId) // await service.findById(userId)

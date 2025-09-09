@@ -10,7 +10,7 @@ userRouter.delete('/', ApiUser.Delete)
 
 //opções do admin
 userRouter.post('/', ApiUser.Create)
-userRouter.get('/', ApiUser.FindByAll)
+userRouter.get('/', ApiUser.FindAll)
 userRouter.get('/id', ApiUser.FindById)
 userRouter.put('/:id', ApiUser.Update)
 userRouter.delete('/:id', ApiUser.Delete)
