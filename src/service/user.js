@@ -5,7 +5,7 @@ const { or } = require("sequelize")
 
 const roles = ["admin", "employee"]
 const salt = 12
-const secretKey = "MeuSegredoForte" 
+const secretKey = "MeuSegredoforte" 
 
 class ServiceUser{
     async FindAll(organizationId, transaction) {
@@ -91,8 +91,12 @@ class ServiceUser{
       throw new Error("Email ou senha inválidos")
 
     }
-    //async Verify() {}
-
+    async Verify(id, role, transaction) {
+      return modelUser.findOne(
+        { where: {id, role }, transaction}
+      )
+    }
+    
 }
 
 module .exports = new ServiceUser()

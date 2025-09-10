@@ -3,7 +3,7 @@ const serviceProduct = require("../service/product")
 class ApiProduct {
     async FindById(req, res) {
         try {
-            const organizationId = 1
+            const organizationId = req.session.organizationId
             const { id } = req.params
             const product = await serviceProduct.FindById(organizationId, id)
 
@@ -14,7 +14,7 @@ class ApiProduct {
     }
     async FindAll(req, res) {
         try {
-            const organizationId = 1 
+            const organizationId = req.session.organizationId 
             const products = await serviceProduct.FindAll(organizationId)
 
             res.status(200).send({products})
@@ -24,7 +24,7 @@ class ApiProduct {
     }
      async Create(req, res) {
         try {
-            const organizationId = 1
+            const organizationId = req.session.organizationId
             const { name, description } = req.body
             const product = await serviceProduct.Create(organizationId, name, description)
 
@@ -35,7 +35,7 @@ class ApiProduct {
     }
     async Update(req, res) {
         try {
-            const organizationId = 1
+            const organizationId = req.session.organizationId
             const { id, } = req.params
             const { name, description } = req.body
             const product = await serviceProduct.Update(organizationId, id, name, description)
@@ -47,7 +47,7 @@ class ApiProduct {
     }
     async Delete(req, res) {
         try {
-            const organizationId = 1
+            const organizationId = req.session.organizationId
             const { id } = req.params
             const product = await serviceProduct.Delete(organizationId, id)
 
