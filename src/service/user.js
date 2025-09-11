@@ -13,8 +13,11 @@ class ServiceUser{
     }
 
     async FindById(organizationId, id, transaction) {
-        return modelUser.findOne({where: { organizationId, id}}, {transaction})
-    }
+      return modelUser.findOne({
+        where: { organizationId, id },
+        transaction
+    })
+}
     async Create(organizationId, name, email, password, role, transaction){
       if(!organizationId){
         throw new Error("Favor informar a organização")

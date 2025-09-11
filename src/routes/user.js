@@ -12,7 +12,7 @@ userRouter.delete('/', authMiddleware(), ApiUser.Delete)
 //opções do admin
 userRouter.post('/', authMiddleware('admin'),ApiUser.Create)
 userRouter.get('/', authMiddleware('admin'),ApiUser.FindAll)
-userRouter.get('/id', authMiddleware('admin'),ApiUser.FindById)
+userRouter.get('/:id', authMiddleware('admin'),ApiUser.FindById)
 userRouter.put('/:id', authMiddleware('admin'),ApiUser.Update)
 userRouter.delete('/:id', authMiddleware('admin'),ApiUser.Delete)
 
