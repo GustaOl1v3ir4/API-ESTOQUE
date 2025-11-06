@@ -1,16 +1,4 @@
-version: "3.9"
 services:
-  api:
-    build: .
-    container_name: api-estoque
-    restart: always
-    ports:
-      - "3000:3000"
-    env_file:
-      - .env
-    depends_on:
-      - db
-
   db:
     image: mysql:8.0
     container_name: estoque-db
@@ -24,6 +12,17 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+
+  api:
+    build: .
+    container_name: api-estoque
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - db
 
 volumes:
   db_data:

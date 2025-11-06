@@ -24,6 +24,7 @@
   "homepage": "https://github.com/GustaOl1v3ir4/Api_estoque#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "jest": "^30.0.5",
     "jsonwebtoken": "^9.0.2",

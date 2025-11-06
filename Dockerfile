@@ -1,23 +1,21 @@
-# Imagem base
-FROM node:20-alpine
+# Imagem base leve e estável
+FROM node:20.11.1-alpine
 
-# Diretório de trabalho dentro do container
+# Diretório de trabalho
 WORKDIR /app
 
-# Copiar package.json e package-lock.json
+# Copiar dependências e instalar
 COPY package*.json ./
+RUN npm ci --omit=dev
 
-# Instalar dependências
-RUN npm install --production
-
-# Copiar todo o código
+# Copiar o restante do código
 COPY . .
 
-# Definir variáveis de ambiente padrão (serão sobrescritas pelo docker-compose/.env)
+# Variável padrão de porta
 ENV PORT=3000
 
 # Expor a porta
 EXPOSE 3000
 
-# Comando para rodar a API
+# Rodar o servidor
 CMD ["node", "index.js"]
