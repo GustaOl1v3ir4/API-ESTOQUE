@@ -89,7 +89,7 @@ class ServiceUser{
           id: user.id,
           role: user.role, 
           organizationId: user.organizationId
-        }, secretKey, {expiresIn: 60 * 60} )
+        }, secretKey, {expiresIn: '30d'} )
       }
       throw new Error("Email ou senha inválidos")
 
