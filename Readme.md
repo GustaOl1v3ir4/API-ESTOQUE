@@ -78,3 +78,10 @@ PUT	/produtos/:id	Atualiza produto
 DELETE	/produtos/:id	Remove produto
 POST	/movimentacoes	Cria movimentação
 
+
+📄 Licença
+Este projeto está sob a licença MIT.
+
+📬 Contato
+Gustavo Carvalho De Oliveira 
+gustavoco2010@hotmail.com
