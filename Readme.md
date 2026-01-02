@@ -1,32 +1,80 @@
-# 📦 API de Gestão de Estoque
+# 🧾 API-ESTOQUE
 
-API RESTful desenvolvida em **Node.js** com **Express** e **Sequelize** para controle de produtos, usuários e movimentações de estoque.
+API RESTful para **gestão de estoque de produtos**, com autenticação de usuários e controle de movimentações (entrada/saída), desenvolvida em **Node.js + Express** com banco de dados **MySQL/MariaDB**.
 
 ---
 
 ## 🚀 Funcionalidades
 
-- 🔑 Autenticação de usuários com **JWT** e **bcrypt**
-- 👥 Gerenciamento de usuários (admin, funcionário)
-- 📦 Cadastro e gerenciamento de produtos
-- 🏢 Controle de organizações
-- 🔄 Registro de movimentações de estoque (entrada/saída)
-- ✅ Relacionamentos com **chaves estrangeiras** para garantir integridade
-- 🌐 Deploy pronto para produção
+✔️ Autenticação de usuários com JWT  
+✔️ Hash de senhas com bcrypt  
+✔️ Gestão de usuários (admin e funcionário)  
+✔️ CRUD de produtos  
+✔️ Controle de organizações  
+✔️ Registro de movimentações de estoque  
+✔️ Suporte a relações com chaves estrangeiras  
+✔️ Deploy pronta para produção
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## 🛠 Tecnologias
 
-- [Node.js](https://nodejs.org/)
-- [Express](https://expressjs.com/)
-- [Sequelize](https://sequelize.org/)
-- [MySQL/MariaDB](https://www.mysql.com/)
-- [JWT](https://jwt.io/) (autenticação)
-- [Bcrypt](https://www.npmjs.com/package/bcrypt) (hash de senha)
-- [PM2](https://pm2.keymetrics.io/) + [Nginx](https://www.nginx.com/) (produção)
+Este projeto utiliza:
+
+| Tecnologia | Descrição |
+|------------|-----------|
+| `Node.js` | Runtime JavaScript |
+| `Express` | Framework web |
+| `Sequelize` | ORM para banco |
+| `MySQL/MariaDB` | Banco de dados |
+| `JWT` | Autenticação |
+| `bcrypt` | Criptografia de senha |
+| `Docker` + `docker-compose` | Para execução isolada |
 
 ---
 
-## 📂 Estrutura do projeto
+## 🧱 📁 Estrutura do Projeto
+
+📦API-ESTOQUE
+┣ 📂src
+┣ ┣ index.js
+┣ ┣ ...
+┣ 📄Dockerfile
+┣ 📄docker-compose.yml
+┣ 📄.gitignore
+┣ 📄package.json
+
+
+---
+
+## ⚙️ Pré-requisitos
+
+Você precisa ter instalado:
+
+✔️ Node.js  
+✔️ Docker & Docker-Compose (opcional — recomendado)  
+✔️ MySQL/MariaDB funcionando
+
+---
+
+## 🚀 Como rodar localmente
+
+### 🐳 Com Docker (recomendado)
+```sh
+docker compose up --build
+.
+
+🧑‍💻 Sem Docker
+npm install
+Configure seu .env com variáveis de conexão e então:
+npm start
+
+📌 Endpoints principais
+Método	Rota	Descrição
+POST	/login	Login de usuário
+GET	/produtos	Lista produtos
+POST	/produtos	Cria produto
+PUT	/produtos/:id	Atualiza produto
+DELETE	/produtos/:id	Remove produto
+POST	/movimentacoes	Cria movimentação
 
